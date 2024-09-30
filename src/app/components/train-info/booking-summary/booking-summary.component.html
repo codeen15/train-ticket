@@ -1,0 +1,46 @@
+<div class="mt-6 w-full space-y-6 sm:mt-8 lg:mt-0">
+    <div class="flex justify-center items-center gap-3">
+        <img src="assets/done.png" class="h-10 w-10" alt="">
+        Booking success!
+    </div>
+    <div class="flow-root">
+        <div class="-my-3 divide-y divide-gray-200 dark:divide-gray-800">
+            <dl class="flex items-center justify-between gap-4 py-3">
+                <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Origin - Destination</dt>
+                <dd class="text-base font-medium text-gray-900 dark:text-white">{{ summary?.departure_trip?.origin?.name
+                    }} - {{
+                    summary?.departure_trip?.destination?.name }}</dd>
+            </dl>
+            <dl class="flex items-center justify-between gap-4 py-3">
+                <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Departure Date</dt>
+                <dd class="text-base font-medium text-gray-900 dark:text-white">{{ summary?.departure_trip?.date_time |
+                    date:'short' }}</dd>
+            </dl>
+            @if(searchInfo?.returnDate) {
+            <dl class="flex items-center justify-between gap-4 py-3">
+                <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Return Date</dt>
+                <dd class="text-base font-medium text-gray-900 dark:text-white">{{ (summary?.return_trip?.date_time |
+                    date:'short') ?? '-' }}</dd>
+            </dl>
+            }
+            <dl class="flex items-center justify-between gap-4 py-3">
+                <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Selected seats</dt>
+                <dd class="text-base font-medium text-gray-900 dark:text-white text-end">Train {{
+                    summary?.departure_trip?.id }}<br>{{ summary?.departure_seats?.join(', ')
+                    }}
+                </dd>
+            </dl>
+            @if(searchInfo?.returnDate) {
+            <dl class="flex items-center justify-between gap-4 py-3">
+                <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Selected return seats</dt>
+                <dd class="text-base font-medium text-gray-900 dark:text-white text-end">Train {{
+                    summary?.return_trip?.id }}<br>{{ summary?.return_seats?.join(', ') }}</dd>
+            </dl>
+            }
+            <dl class="flex items-center justify-between gap-4 py-3">
+                <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
+                <dd class="text-base font-bold text-gray-900 dark:text-white">RM{{ calculateTotal() }}</dd>
+            </dl>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<section class="bg-gray-50 dark:bg-gray-900 antialiased">
+    <div class="">
+        <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-4 py-4">Origin</th>
+                            <th scope="col" class="px-4 py-3">Destination</th>
+                            <th scope="col" class="px-4 py-3">Departure</th>
+                            <th scope="col" class="px-4 py-3">Return</th>
+                            <th scope="col" class="px-4 py-3">Name</th>
+                            <th scope="col" class="px-4 py-3">Email</th>
+                            <th scope="col" class="px-4 py-3">Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (booking of bookings; track $index) {
+                        <tr class="border-b dark:border-gray-700">
+                            <th scope="row"
+                                class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{
+                                booking.departure_trip.origin.name }}</th>
+                            <td class="px-4 py-3">{{ booking.departure_trip.destination.name }}</td>
+                            <td class="px-4 py-3">
+                                Date & Time: {{ booking.departure_trip.date_time | date: 'short' }} <br>
+                                Selected seats: {{ booking.departure_seats.join(', ') }} <br>
+                            </td>
+                            <td class="px-4 py-3">
+                                Date & Time: {{ (booking.return_trip?.date_time | date: 'short') || '-' }} <br>
+                                Selected seats: {{ booking.return_seats.join(', ') }} <br>
+                            </td>
+                            <td class="px-4 py-3">{{ booking.name }}</td>
+                            <td class="px-4 py-3">{{ booking.email }}</td>
+                            <td class="px-4 py-3">{{ booking.payment_done ? 'Yes' : 'No' }}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
