@@ -1,27 +1,53 @@
-# TrainTicket
+# Train Ticket
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
+This README will guide you through the setup process, from installing Node.js to running the application.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before you begin, ensure you have the following installed on your machine:
 
-## Code scaffolding
+- **Node.js** (version 16 or higher)
+- **npm** (Node package manager, included with Node.js)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Step-by-Step Installation Guide
 
-## Build
+### 1. Install Node.js
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To install Node.js, follow the instructions for your operating system:
 
-## Running unit tests
+- **Windows**:
+  - Download the installer from [nodejs.org](https://nodejs.org/en/download/).
+  - Run the installer and follow the prompts.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **macOS**:
+  - You can install Node.js using Homebrew. Open your terminal and run:
+    ```bash
+    brew install node
+    ```
 
-## Running end-to-end tests
+- **Linux**:
+  - Use your package manager. For Ubuntu, run:
+    ```bash
+    sudo apt update
+    sudo apt install nodejs npm
+    ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 2. Clone the Repository
 
-## Further help
+Clone the project repository to your local machine:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+git clone https://github.com/codeen15/train-ticket.git
+```
+
+### 3. Install Dependencies
+
+```
+npm install
+```
+
+### 4. Run the Development Server
+
+```
+ng serve
+```
